@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import {Switch, Route, useHistory, NavLink} from 'react-router-dom';
 import './App.css';
-import NavBar from "./components/NavBar";
+
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import BlogOverview from "./pages/BlogOverview";
 import BlogPost from "./pages/BlogPost";
-import posts from "./data/posts.json"
 
 // STAPPENPLAN ROUTING IMPLEMENTEREN
 // - npm install react-router-dom@5.1.2
@@ -25,12 +24,12 @@ import posts from "./data/posts.json"
 
 function App() {
 
-  const [isAuthenticated, toggleIsAuthenticated ] = useState(false);
+    const [isAuthenticated, toggleIsAuthenticated] = useState()
 
-    const history = useHistory();
+    const history = useHistory()
 
-    function handleLogOut() {
-        toggleIsAuthenticated(!isAuthenticated);
+    function handleLogOut () {
+        toggleIsAuthenticated(false);
         history.push('/')
     }
 
@@ -54,7 +53,6 @@ function App() {
                   : <></>
               }
           </nav>
-
         <Switch>
             <Route exact path="/">
                 <HomePage />
